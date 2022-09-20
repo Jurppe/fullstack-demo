@@ -11,7 +11,8 @@ const ProcutStyles = styled.div`
   max-width: var(--maxWidth);
   justify-content: center;
   align-items: top;
-  gap: 2rem img {
+  gap: 2rem;
+  img {
     width: 100%;
     object-fit: contain;
   }

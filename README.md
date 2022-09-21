@@ -20,7 +20,7 @@ React frontend made with next.js and react. Apollo client is used for API fetchi
 Run command: 
 
 ``` bash
-npm run dev
+cd frontend/ && npm run dev
 ```
 
 ## ⚙️ Backend
@@ -30,7 +30,7 @@ Node backend made with Keystone JS. Keystone JS is used as a headless CMS. Keyst
 Run command:
 
 ``` bash
-npm run dev
+cd backend/ && npm run dev
 ```
 
 ## 💾 Database
@@ -39,5 +39,8 @@ MongoDB database which runs in container.
 ### How to run
 Spin up the docker compose
 ``` bash
-docker-compose up
+cd database/ && docker-compose up
 ```
+
+## Credits
+- [Wes Bos - Fullstack Advanced (React & Graphql)](https://advancedreact.com/)

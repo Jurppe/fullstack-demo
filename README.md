@@ -1,10 +1,43 @@
+**⚠️ This project is currently in work in progress**
+
 # Fullstack application demo
+Fullstack online clothing site for "Sick Fits". Clothing store with complete real credit checkout. Users can search, sell, add to cart and checkout their favourite items.
 
-## Frontend
-React frontend made with next.js
+The application has six main models — Users, Items, Orders, CartItems, OrderItems, and Roles — all of which are relational and showcase the power of relational GraphQL Queries.
 
-## Backend
-Node backend made with keystone.js
+The app also includes many server side bits including authentication, permissions, sending email, uploading images, and charging credit cards.
 
-## Database
-MongoDB database which is run in container.
+## 📺 Frontend
+React frontend made with next.js and react. Apollo client is used for API fetching and cache management. 
+- **Next.js**
+  - For server side rendering, routing and tooling
+- **Styled components**
+  - For styling
+- **Apollo**'s React Hooks
+- **Jest & React testing library**
+
+### How to run
+Run command: 
+
+``` bash
+npm run dev
+```
+
+## ⚙️ Backend
+Node backend made with Keystone JS. Keystone JS is used as a headless CMS. Keystone JS creates GraphQL API for backend operations, which covers for example all the basic CRUD-operations needed for content management. 
+
+### How to run
+Run command:
+
+``` bash
+npm run dev
+```
+
+## 💾 Database
+MongoDB database which runs in container.
+
+### How to run
+Spin up the docker compose
+``` bash
+docker-compose up
+```

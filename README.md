@@ -1,4 +1,20 @@
 **⚠️ This project is currently in work in progress**
+#### 🛠 **TODO:**
+- Finish the application
+  - [ ] User/account management
+  - [ ] User registration
+  - [ ] User authentication
+  - [ ] Proper authorization handling
+  - [ ] Order management
+  - [ ] Cart management
+  - [ ] Checkout
+  - [ ] Search function implementation
+  - [ ] Backend polish
+- [ ] Containerize applications
+- [ ] Tests
+- CI/CD
+  - [ ] CDK implementation which creates needed infrastructure to AWS cloud
+  - [ ] AWS Native codepipeline for CI
 
 # Fullstack application demo
 Fullstack online clothing site for "Sick Fits". Clothing store with complete real credit checkout. Users can search, sell, add to cart and checkout their favourite items.

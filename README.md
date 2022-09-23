@@ -1,9 +1,9 @@
 **⚠️ This project is currently in work in progress**
 #### 🛠 **TODO:**
 - Finish the application
-  - [ ] User/account management
-  - [ ] User registration
-  - [ ] User authentication
+  - [x] User/account management
+  - [x] User registration
+  - [x] User authentication
   - [ ] Proper authorization handling
   - [ ] Order management
   - [ ] Cart management

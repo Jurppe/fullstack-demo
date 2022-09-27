@@ -39,6 +39,7 @@ export default function Reset({ token }) {
   async function handleSubmit(event) {
     event.preventDefault(); // stop the form for submitting and refreshing page
     const res = await reset().catch(console.error);
+    console.log(res);
     resetForm();
   }
 
@@ -48,11 +49,11 @@ export default function Reset({ token }) {
       <DisplayError error={error || succesfullError} />
       {data?.redeemUserPasswordResetToken === null && (
         <p>
-          Password changed successfully! You can now sign in with the new
+          ✅ Password changed successfully! You can now sign in with the new
           password.
         </p>
       )}
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="email">
           Email
           <input

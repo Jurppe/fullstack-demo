@@ -37,7 +37,7 @@ export default function RequestReset() {
         <p>Success ✅ Check your email for reset message</p>
       )}
       <DisplayError error={error} />
-      <fieldset>
+      <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor="email">
           Email
           <input

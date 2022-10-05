@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
+import { useEffect, useRef } from 'react';
 import CartStyles from './styles/CartStyles';
 import Supreme from './styles/Supreme';
 import { useUser } from './User';
@@ -7,6 +8,8 @@ import FormatMoney from '../lib/formatMoney';
 import calcTotalPrice from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
 import CloseButton from './styles/CloseButton';
+import RemoveItemFromCart from './RemoveFromCart';
+import { Checkout } from './Checkout';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -22,8 +25,27 @@ const CartItemStyles = styled.li`
   }
 `;
 
+function useOutsideAlerter(ref, cartOpen, closeCart) {
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target) && cartOpen) {
+        closeCart();
+      }
+    }
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, cartOpen, closeCart]);
+}
+
 function CartItem({ cartItem }) {
-  const { product } = cartItem;
+  const { product, id } = cartItem;
 
   if (!product) return null;
 
@@ -41,6 +63,7 @@ function CartItem({ cartItem }) {
         </em>
         <p>Total: {FormatMoney(product.price * cartItem.quantity)}</p>
       </div>
+      <RemoveItemFromCart id={id} />
     </CartItemStyles>
   );
 }
@@ -48,11 +71,15 @@ function CartItem({ cartItem }) {
 export default function Cart() {
   const me = useUser();
   const { cartOpen, closeCart } = useCart();
+  // Create wrapper reference that detects clicks outside Cart component
+  // When click outside the Cart component is detected change cartOpen state to false
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef, cartOpen, closeCart);
 
   if (!me) return null;
 
   return (
-    <CartStyles open={cartOpen}>
+    <CartStyles open={cartOpen} ref={wrapperRef}>
       <header>
         <Supreme>{me.name}'s Cart</Supreme>
       </header>
@@ -66,6 +93,7 @@ export default function Cart() {
       </ul>
       <footer>
         <p>Cart's Total: {FormatMoney(calcTotalPrice(me.cart))}</p>
+        <Checkout />
       </footer>
     </CartStyles>
   );

@@ -19,6 +19,6 @@ export const User = list({
         },
       },
     }),
-    // TODO: add notes
+    orders: relationship({ ref: 'Order.user', many: true }),
   },
 });

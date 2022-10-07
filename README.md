@@ -4,11 +4,11 @@
   - [x] User/account management
   - [x] User registration
   - [x] User authentication
-  - [ ] Proper authorization handling
-  - [ ] Order management
-  - [ ] Cart management
-  - [ ] Checkout
-  - [ ] Search function implementation
+  - [x] Proper authorization handling
+  - [x] Order management
+  - [x] Cart management
+  - [x] Checkout
+  - [x] Search function implementation
   - [ ] Backend polish
 - [ ] Containerize applications
 - [ ] Tests
